@@ -132,14 +132,14 @@ func (c *clientListener) NewBlockAvailable(kapi *SpectreApi) {
 				c.shareHandler.setClientVardiff(client, c.minShareDiff)
 			}
 
-			varDiff := c.shareHandler.getClientVardiff(client)
-			if varDiff != state.stratumDiff.diffValue {
-				// send updated vardiff
-				client.Logger.Info(fmt.Sprintf("changing diff from %f to %f", state.stratumDiff.diffValue, varDiff))
-				state.stratumDiff.setDiffValue(varDiff)
-				sendClientDiff(client, state)
-				c.shareHandler.startClientVardiff(client)
-			}
+			// varDiff := c.shareHandler.getClientVardiff(client)
+			// if varDiff != state.stratumDiff.diffValue {
+			// 	// send updated vardiff
+			// 	client.Logger.Info(fmt.Sprintf("changing diff from %f to %f", state.stratumDiff.diffValue, varDiff))
+			// 	state.stratumDiff.setDiffValue(varDiff)
+			// 	sendClientDiff(client, state)
+			// 	c.shareHandler.startClientVardiff(client)
+			// }
 
 			jobParams := []any{fmt.Sprintf("%d", jobId)}
 			if state.useBigJob {
